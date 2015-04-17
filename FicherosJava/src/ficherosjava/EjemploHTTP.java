@@ -6,6 +6,7 @@
 package ficherosjava;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -44,6 +45,16 @@ public class EjemploHTTP {
                 }
 
                 System.out.println(respuesta.toString());
+                
+                // Volcado a disco
+                byte buffer[] = respuesta.toString().getBytes();
+                
+                FileOutputStream ficheroSalida = new FileOutputStream("../hora.txt");
+                
+                ficheroSalida.write(buffer);
+                
+                ficheroSalida.close();
+                
             }
         } catch (IOException ex) {
             System.err.println("ERROR: Error de E/S");
