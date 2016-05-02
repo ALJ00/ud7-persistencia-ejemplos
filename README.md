@@ -1,5 +1,8 @@
-# Persistencia en Java
+# PROG2015
 
-- Un ejemplo con ficheros y lectura/escritura.
-- Un ejemplo con lectura desde una URL con HTTP.
-- Un ejemplo con base de datos MySQL y JDBC.
+Ejemplos de persistencia en Java:
+
+- Lectura y escritura de ficheros en disco.
+- Lectura de un *stream* de texto desde una URL remota mediante HTTP.
+- Conexión a una base de datos MySQL con JDBC.
+- Conexión a una base de datos Oracle con JDBC.

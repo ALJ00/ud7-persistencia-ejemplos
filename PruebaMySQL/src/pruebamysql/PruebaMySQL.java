@@ -15,7 +15,7 @@ public class PruebaMySQL {
             String bd = "videoclub";
             String login = "root";
             String password = "root";
-            String url = "jdbc:mysql://localhost:8889/" + bd;
+            String url = "jdbc:mysql://192.168.33.10:3306/" + bd;
 
             Connection conexion = DriverManager.getConnection(url, login, password);
 

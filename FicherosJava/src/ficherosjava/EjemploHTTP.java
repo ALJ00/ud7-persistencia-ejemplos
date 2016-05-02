@@ -18,15 +18,19 @@ public class EjemploHTTP {
     public static void main(String[] args) {
 
         BufferedReader in = null;
+        
         try {
+            
+            // Dirección desde la que vamos a leer
             URL url = null;
             try {
-                url = new URL("http://www.earthtools.org/timezone/42.846667/-2.673056");
+                url = new URL("http://www.timeapi.org/utc/now");
             } catch (MalformedURLException ex) {
                 System.err.println("ERROR: URL errónea");
             }
 
             if (url != null) {
+
                 // Crear y configurar la conexión
                 HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
                 conexion.setConnectTimeout(5000);
@@ -44,23 +48,25 @@ public class EjemploHTTP {
                     respuesta.append(linea);
                 }
 
-                System.out.println(respuesta.toString());
-                
+                System.out.println("Hora UTC: "+respuesta.toString());
+
                 // Volcado a disco
                 byte buffer[] = respuesta.toString().getBytes();
-                
+
                 FileOutputStream ficheroSalida = new FileOutputStream("../hora.txt");
-                
+
                 ficheroSalida.write(buffer);
-                
+
                 ficheroSalida.close();
-                
+
             }
         } catch (IOException ex) {
             System.err.println("ERROR: Error de E/S");
         } finally {
             try {
-                in.close();
+                if (in != null) {
+                    in.close();
+                }
             } catch (IOException ex) {
                 System.err.println("ERROR: Error de E/S");
             }
