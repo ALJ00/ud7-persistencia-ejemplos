@@ -17,10 +17,11 @@ public class EjemploOracle {
         try {
 
             // Cargar el driver correspondiente
+            // http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
 
             // Cadena de conexión: driver@machineName:port:SID, userid, password
-            Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@172.20.224.100:1521:orcl", "proyecto", "proyecto");
+            Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
             System.out.println("INFO: Conexión abierta");
 
             // Consulta simple
