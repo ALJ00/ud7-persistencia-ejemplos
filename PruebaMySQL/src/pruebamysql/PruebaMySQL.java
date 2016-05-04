@@ -20,7 +20,7 @@ public class PruebaMySQL {
             Connection conexion = DriverManager.getConnection(url, login, password);
 
             Statement sentencia = conexion.createStatement();
-            ResultSet resultado = sentencia.executeQuery("select * from Pelicula");
+            ResultSet resultado = sentencia.executeQuery("select * from Peliculas");
 
             while (resultado.next() == true) {
                 System.out.println("Id: " + resultado.getInt("id"));
