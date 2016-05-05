@@ -1,4 +1,4 @@
-﻿-- Cabecera
+-- Cabecera
 CREATE OR REPLACE PACKAGE gest_depart AS
 	TYPE tcursor IS REF CURSOR;
 

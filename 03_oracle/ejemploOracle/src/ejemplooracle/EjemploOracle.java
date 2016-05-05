@@ -38,8 +38,8 @@ public class EjemploOracle {
             CallableStatement cs = conn.prepareCall(sql);
 
             // Cargamos los parametros de entrada IN
-            cs.setString(1, "nuevo");
-            cs.setString(2, "Viteiz");
+            cs.setString(1, "NuevoDep");
+            cs.setString(2, "VitoriaGasteiz");
 
             // Ejecutamos la llamada
             cs.execute();

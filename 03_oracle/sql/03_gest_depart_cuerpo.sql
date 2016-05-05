@@ -1,6 +1,3 @@
-﻿
-
-
 CREATE OR REPLACE PACKAGE BODY gest_depart AS
   -- Función privada
   FUNCTION  buscar_depart_por_nombre
