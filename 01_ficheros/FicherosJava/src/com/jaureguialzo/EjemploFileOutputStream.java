@@ -1,11 +1,11 @@
-package ficherosjava;
+package com.jaureguialzo;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class EjemploFileOutputStream {
 
-    public static void main(String[] args) {
+    public static void escribirFichero() {
 
         String texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam diam nisl, vehicula sit amet convallis vel, imperdiet eget nisl. Pellentesque magna elit, rhoncus vitae diam in, vulputate pretium neque. Cras volutpat elit quis mauris gravida, sit amet condimentum enim tristique. Proin tempor a purus nec varius. Curabitur eget consectetur felis. Suspendisse et nulla orci. Nullam sit amet congue nibh, in vulputate urna. Donec est est, vulputate a dignissim eu, maximus ac nulla. Etiam gravida at tortor id ullamcorper. Nullam tincidunt sem eu metus pulvinar viverra. Pellentesque tincidunt pharetra erat. Sed placerat dui suscipit ipsum fermentum commodo. Nunc ultricies tellus in porta imperdiet.";
 
@@ -31,6 +31,12 @@ public class EjemploFileOutputStream {
 
             // Escritura de f3
             f2.write(buffer, buffer.length - buffer.length / 4, buffer.length / 4);
+
+            System.out.print((char) 27 + "[33m");
+            System.out.print("Ficheros f1.txt, f2.txt y f3.txt generados.");
+            System.out.print((char) 27 + "[39m");
+            System.out.println();
+
         } catch (IOException e) {
             System.out.println("ERROR: Error de E/S");
         } finally {
@@ -58,4 +64,5 @@ public class EjemploFileOutputStream {
             }
         }
     }
+
 }

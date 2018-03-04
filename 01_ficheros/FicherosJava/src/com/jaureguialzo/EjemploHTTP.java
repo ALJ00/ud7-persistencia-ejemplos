@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ficherosjava;
+package com.jaureguialzo;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -15,16 +10,16 @@ import java.net.URL;
 
 public class EjemploHTTP {
 
-    public static void main(String[] args) {
+    public static void leerUTC() {
 
         BufferedReader in = null;
-        
+
         try {
-            
+
             // Dirección desde la que vamos a leer
             URL url = null;
             try {
-                url = new URL("http://www.timeapi.org/utc/now");
+                url = new URL("https://time.jaureguialzo.com/");
             } catch (MalformedURLException ex) {
                 System.err.println("ERROR: URL errónea");
             }
@@ -38,8 +33,7 @@ public class EjemploHTTP {
                 conexion.setInstanceFollowRedirects(true);
 
                 // Abrir el stream de lectura
-                in = new BufferedReader(
-                        new InputStreamReader(conexion.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
 
                 // Leer línea a línea
                 String linea;
@@ -48,12 +42,15 @@ public class EjemploHTTP {
                     respuesta.append(linea);
                 }
 
-                System.out.println("Hora UTC: "+respuesta.toString());
+                System.out.print((char) 27 + "[33m");
+                System.out.print("Fecha y hora: " + respuesta.toString());
+                System.out.print((char) 27 + "[39m");
+                System.out.println();
 
                 // Volcado a disco
                 byte buffer[] = respuesta.toString().getBytes();
 
-                FileOutputStream ficheroSalida = new FileOutputStream("../hora.txt");
+                FileOutputStream ficheroSalida = new FileOutputStream("../utc.txt");
 
                 ficheroSalida.write(buffer);
 
