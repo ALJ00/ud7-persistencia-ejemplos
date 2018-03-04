@@ -20,8 +20,7 @@ public class Main {
             System.out.println("1. Lectura desde un fichero (bytes)");
             System.out.println("2. Lectura desde un fichero (líneas)");
             System.out.println("3. Escritura en un fichero");
-            System.out.println("4. Lectura desde un servicio web");
-            System.out.println("5. Salir");
+            System.out.println("4. Salir");
             System.out.print("Opción: ");
 
             try {
@@ -43,16 +42,13 @@ public class Main {
                     EjemploFileOutputStream.escribirFichero();
                     break;
                 case 4:
-                    EjemploHTTP.leerUTC();
-                    break;
-                case 5:
                     break;
                 default:
                     System.err.println("ERROR: Opción no válida...");
                     break;
             }
 
-        } while (opcion != 5);
+        } while (opcion != 4);
 
     }
 }

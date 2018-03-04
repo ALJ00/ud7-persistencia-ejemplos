@@ -8,9 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class EjemploHTTP {
+public class Main {
 
-    public static void leerUTC() {
+    public static void main(String[] args) {
 
         BufferedReader in = null;
 
@@ -70,5 +70,4 @@ public class EjemploHTTP {
         }
 
     }
-
 }
