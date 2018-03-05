@@ -17,3 +17,7 @@ Los ejemplos están desarrollados con [IntelliJ IDEA](https://www.jetbrains.com/
 - [Ejemplo 3 - Conexión a una base de datos MySQL con JDBC]().
 - [Ejemplo 4 - Conexión a una base de datos Oracle con JDBC]().
 
+### Herramientas
+
+- [Máquina virtual: Scotch Box](https://github.com/Egibide/scotch-box).
+- [Máquina virtual: Oracle 12c](https://github.com/Egibide/vagrant-oracle-12-ee-linux).
