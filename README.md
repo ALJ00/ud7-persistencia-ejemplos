@@ -14,8 +14,8 @@ Los ejemplos están desarrollados con [IntelliJ IDEA](https://www.jetbrains.com/
 
 - [Ejemplo 1 - Lectura y escritura de ficheros en disco](./01_ficheros/).
 - [Ejemplo 2 - Lectura de un *stream* de texto desde una URL remota mediante HTTP](./02_http/).
-- [Ejemplo 3 - Conexión a una base de datos MySQL con JDBC]().
-- [Ejemplo 4 - Conexión a una base de datos Oracle con JDBC]().
+- [Ejemplo 3 - Gestión de dependencias con Maven](./03_maven/).
+- [Ejemplo 4 - Serialización de objetos Java a JSON](./04_json/).
 
 ### Herramientas
 
