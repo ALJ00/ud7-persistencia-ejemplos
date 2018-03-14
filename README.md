@@ -17,7 +17,7 @@ Los ejemplos están desarrollados con [IntelliJ IDEA](https://www.jetbrains.com/
 - [Ejemplo 3 - Gestión de dependencias con Maven](./03_maven/).
 - [Ejemplo 4 - Serialización de objetos Java a JSON](./04_json/).
 - [Ejemplo 5 - Ejemplo de conexión a SQLite mediante JDBC](./05_sqlite/).
-- [Ejemplo 6 - Ejemplo de conexión a MySQL mediante JDBC](./06_mysql/). ⚠ Falta actualizar a IntelliJ.️
+- [Ejemplo 6 - Ejemplo de conexión a MySQL mediante JDBC](./06_mysql/).
 - [Ejemplo 7 - Ejemplo de conexión a Oracle 12c mediante JDBC](./07_oracle/). ⚠ Falta actualizar a IntelliJ.
 
 ## Herramientas
