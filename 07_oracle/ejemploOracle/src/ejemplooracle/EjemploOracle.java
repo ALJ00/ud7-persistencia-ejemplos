@@ -50,11 +50,12 @@ public class EjemploOracle {
             
             System.out.println("INFO: Procedimiento insert_depart1 ejecutado");
             }
-            catch(SQLException e) {
-                if(e.getErrorCode()==-20001) {
-                        //handle error here, or convert to some specific error and use e.getMessage()
-                     System.out.println("e.getMessage()");
-                    }
+            catch(SQLException e)
+            { //Controlamos los errores que queremos sacar
+              if(e.getErrorCode()==20001) {
+                    //usamos e.getMessage() para sacar el mensaje de RAISE_APPLICATION_ERRORS
+                    System.out.println("  ERROR : "  + e.getMessage());
+                }   
             }
             // Llamada a procedimiento almacenado visualizar_lista_depart1
             // Creamos el statement
@@ -94,10 +95,11 @@ public class EjemploOracle {
             System.out.println("INFO: Procedimiento ejecutado");
             }
             catch(SQLException e) {
-                if(e.getErrorCode()==-20001) {
-                        //handle error here, or convert to some specific error and use e.getMessage()
-                     System.out.println("e.getMessage()");
-                    }
+                //Controlamos los errores que queremos sacar
+                if(e.getErrorCode()==20001) {
+                    //usamos e.getMessage() para sacar el mensaje de RAISE_APPLICATION_ERRORS
+                    System.out.println("  ERROR : "  + e.getMessage());
+                } 
             }
             
             // Llamada a procedimiento almacenado
@@ -149,9 +151,10 @@ public class EjemploOracle {
             System.out.println("INFO: Procedimiento gest_depart.visualizar_datos_depart ejecutado");
              }
             catch(SQLException e) {
-                if(e.getErrorCode()==-20011) {
-                        //handle error here, or convert to some specific error and use e.getMessage()
-                     System.out.println("e.getMessage()");
+                //Controlamos los errores que queremos sacar
+                if(e.getErrorCode()==20021) {
+                     //Usamos e.getMessage() para sacar el mensaje de RAISE_APPLICATION_ERRORS
+                     System.out.println("  ERROR : "  + e.getMessage());
                     }
             }
         

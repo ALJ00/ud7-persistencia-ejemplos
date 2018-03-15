@@ -15,7 +15,7 @@ PROCEDURE insert_depart(
 	  -- Comprobar dpt repetido(Puede disparar NO_DATA_FOUND)
 	  SELECT dnombre INTO v_nom_dep FROM depart
 		WHERE upper(dnombre) = UPPER(p_nom_dep);
-      RAISE insert_depart.e_nombre_repetido;  
+      RAISE e_nombre_repetido;  
 	EXCEPTION
 	  WHEN NO_DATA_FOUND THEN
 	    -- Calcular el número de departamento e insertar 
@@ -28,7 +28,7 @@ PROCEDURE insert_depart(
     	ELSE
 			INSERT INTO DEPART VALUES (v_ultimo_dep+10, p_nom_dep,p_loc);
 		END IF;
-	  WHEN TOO_MANY_ROWS THEN
+	  WHEN e_nombre_repetido THEN
 	    RAISE_APPLICATION_ERROR ('-20001','Err. Nombre de departamento duplicado');		
         --Fin comprobación de departamento repetido 
       WHEN OTHERS THEN
