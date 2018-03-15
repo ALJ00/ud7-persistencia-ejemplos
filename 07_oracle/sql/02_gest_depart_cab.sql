@@ -1,4 +1,3 @@
--- Cabecera
 CREATE OR REPLACE PACKAGE gest_depart AS
 	TYPE tcursor IS REF CURSOR;
 
@@ -23,3 +22,5 @@ CREATE OR REPLACE PACKAGE gest_depart AS
 	   c_depart OUT tcursor,
 	   p_num_empleados OUT NUMBER);
 END gest_depart;
+/
+-- create public synonym gest_depart for BLANCA.GEST_DEPART;

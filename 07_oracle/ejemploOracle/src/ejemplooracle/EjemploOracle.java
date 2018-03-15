@@ -23,7 +23,7 @@ public class EjemploOracle {
 
             // Cadena de conexión: driver@machineName:port:SID, userid, password
             Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-            //Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "blanca", "blanca");
+            //Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "scott", "oracle");
             System.out.println("INFO: Conexión abierta");
 
             // Consulta simple
