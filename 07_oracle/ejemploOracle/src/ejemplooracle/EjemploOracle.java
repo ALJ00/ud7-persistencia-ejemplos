@@ -1,15 +1,10 @@
 package ejemplooracle;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import oracle.jdbc.OracleTypes;
+
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import oracle.jdbc.OracleTypes;
 
 public class EjemploOracle {
 
@@ -176,7 +171,7 @@ public class EjemploOracle {
             //Llamada a procedimiento empaquetado visualizar_datos_depart(p_num_dep IN OUT NUMBER, p_nom_dep OUT VARCHAR2,p_loc_dep OUT VARCHAR2,p_num_empleados OUT NUMBER)
             System.out.println("--- Proc. empaquetado: Visualizar datos --------");
             try {
-                //Creamos el PreparedStatement
+                // Utilizando índices de parámetros
 
                 String sqla3 = "{ call gest_depart.visualizar_datos_depart(?,?,?,?) }";
                 CallableStatement cs3 = conn.prepareCall(sqla3);
@@ -193,20 +188,47 @@ public class EjemploOracle {
                 cs3.execute();
 
                 int dept_no = cs3.getInt(1);
-
                 System.out.println("Dept NO: " + dept_no);
-
-                //String nomdept = cs3.getString("p_nom_dep"); // basado en nombre del parametro. NO va
-                String nomdept = cs3.getString(2);// basado en indice
+                String nomdept = cs3.getString(2);
                 System.out.println("Nomdep: " + nomdept);
+                String loc = cs3.getString(3);
+                System.out.println("Loc: " + loc);
 
                 System.out.println("INFO: Procedimiento gest_depart.visualizar_datos_depart ejecutado");
             } catch (SQLException e) {
-                //Controlamos los errores que queremos sacar
-                if (e.getErrorCode() == 20021) {
-                    //Usamos e.getMessage() para sacar el mensaje de RAISE_APPLICATION_ERRORS
-                    System.out.println("ERROR: " + e.getMessage());
-                }
+                System.out.println("ERROR: " + e.getMessage());
+            }
+            System.out.println("------------------------------------------------");
+
+            //Llamada a procedimiento empaquetado visualizar_datos_depart(p_num_dep IN OUT NUMBER, p_nom_dep OUT VARCHAR2,p_loc_dep OUT VARCHAR2,p_num_empleados OUT NUMBER)
+            System.out.println("--- Proc. empaquetado: Visualizar datos --------");
+            try {
+                // Utilizando nombres de parámetros
+
+                String sqla3 = "{ call gest_depart.visualizar_datos_depart(?,?,?,?) }";
+                CallableStatement cs3 = conn.prepareCall(sqla3);
+
+                // Cargamos los parametros de entrada IN
+                cs3.setInt("p_num_dep", 40);
+
+                // Registramos los parametros de salida OUT
+                cs3.registerOutParameter("p_nom_dep", java.sql.Types.VARCHAR);
+                cs3.registerOutParameter("p_loc_dep", java.sql.Types.VARCHAR);
+                cs3.registerOutParameter("p_num_empleados", java.sql.Types.INTEGER);
+
+                // Ejecutamos la llamada
+                cs3.execute();
+
+                int dept_no = cs3.getInt("p_num_dep");
+                System.out.println("Dept NO: " + dept_no);
+                String nomdept = cs3.getString("p_nom_dep");
+                System.out.println("Nomdep: " + nomdept);
+                String loc = cs3.getString("p_loc_dep");
+                System.out.println("Loc: " + loc);
+
+                System.out.println("INFO: Procedimiento gest_depart.visualizar_datos_depart ejecutado");
+            } catch (SQLException e) {
+                System.out.println("ERROR: " + e.getMessage());
             }
             System.out.println("------------------------------------------------");
 
